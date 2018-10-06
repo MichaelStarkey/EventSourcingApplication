@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  .container
+    if account
+      .accounts.rounded.box-shadow.my-2
+          p.idLabel.mx-4.my-3 ID: 
+            span.accountID= account.id
+          p.accountBalance.mx-4.mt-0.mb-2 £
+            span= account.balance
+          #outer
+            .inner
+              if account.balance==0
+                a.btn.btn-md.btn-danger.btn-block(href="../delete/"+id) Delete
+      table(id="transactions")
+        tr
+          td To
+          td From
+          td Amount
+          td Status
+        if transactions
+          for transaction in transactions
+              tr
+                if transaction.creditor==account.id
+                  td#user= transaction.creditor
+                  td= transaction.debtor
+                  td £
+                    span= transaction.amount
+                  td(id=transaction.status class="status")= transaction.status
+                else 
+                  td= transaction.creditor
+                  td#user= transaction.debtor
+                  td £
+                    span= transaction.amount
+                  td(id=transaction.status class="status")= transaction.status

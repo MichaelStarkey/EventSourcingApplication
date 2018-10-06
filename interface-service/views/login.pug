@@ -1,0 +1,23 @@
+extends layout
+block header
+  link(rel='stylesheet', href='/stylesheets/floating-labels.css')
+
+block content
+  .bootstrap-form
+    form.form-signin(method='post' action='/users/login')
+      .text-center.mb-4
+        if success
+          .alert.alert-success= success
+        //- img.mb-4(src='favicon.ico', alt='', width='72', height='72')
+        h1.h3.mb-3.font-weight-bold= title
+        p
+          //- | Welcome to #{title} 
+          //- code :placeholder-shown
+          | Login to your online banking account
+      .form-label-group
+        input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='', name='email')
+        label(for='inputEmail') Email address
+      .form-label-group
+        input#inputPassword.form-control(type='password', placeholder='Password', required='', name='password')
+        label(for='inputPassword') Password
+      button#submit.btn.btn-lg.btn-primary.btn-block(type='submit') Login

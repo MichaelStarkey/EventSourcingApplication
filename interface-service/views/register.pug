@@ -1,0 +1,33 @@
+extends layout
+block header
+  link(rel='stylesheet', href='/stylesheets/floating-labels.css')
+
+block content
+  .bootstrap-form
+    form.form-signin(method='post' action='/users/register')
+      .text-center.mb-4
+        if errors
+          for error in errors
+            .alert.alert-danger= error.msg
+        //- img.mb-4(src='favicon.ico', alt='', width='72', height='72')
+        h1.h3.mb-3.font-weight-bold= title
+        p
+          //- | Welcome to #{title} 
+          //- code :placeholder-shown
+          | Register to gain access to all online banking features
+      .form-label-group
+        input#inputEmail.form-control(type='email', placeholder='Email address', autofocus='', required='', name='email')
+        label(for='inputEmail') Email address
+      .form-label-group
+        input#inputFirstName.form-control(type='text', placeholder='First Name', required='', name='fName')
+        label(for='inputFirstName') First Name
+      .form-label-group
+        input#inputLastName.form-control(type='text', placeholder='Last Name', required='', name='lName')
+        label(for='inputLastName') Last Name
+      .form-label-group
+        input#inputPassword.form-control(type='password', placeholder='Password', required='', name='password')
+        label(for='inputPassword') Password
+      .form-label-group
+        input#inputPasswordSecond.form-control(type='password', placeholder='Confirm Password', required='', name='password2')
+        label(for='inputPasswordSecond') Confirm Password
+      button#submit.btn.btn-lg.btn-success.btn-block(type='submit') Register

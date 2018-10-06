@@ -1,0 +1,27 @@
+extends layout
+block header
+  link(rel='stylesheet', href='/stylesheets/floating-labels.css')
+
+block content
+  .container
+    .bootstrap-form
+      form.form-signin(method='post' action='/createTransaction')
+        .text-center.mb-4
+          if success
+            .alert.alert-success= success
+          //- img.mb-4(src='favicon.ico', alt='', width='72', height='72')
+          h1.h3.mb-3.font-weight-bold= title
+          p
+            | Make a transaction
+        .form-label-group
+          select#creditor.form-control(placeholder='From', required='', name='debtor')
+            option(disabled selected value) From
+            each account in accounts
+              option(value=account.id)=account.id
+        .form-label-group
+          input#debtor.form-control(placeholder='To', required='', name='creditor')
+          label(for='debtor') To
+        .form-label-group
+          input#amount.form-control(placeholder='Amount', required='', name='amount')
+          label(for='amount') Amount
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Make Transaction

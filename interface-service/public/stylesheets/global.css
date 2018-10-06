@@ -1,0 +1,77 @@
+html,
+body {
+    height: 100%;
+    background-color: #f5f5f5;
+
+}
+
+.idLabel {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.accounts {
+    background-color: #b0b0b0;
+    border: 5px solid #343a40;
+    width: 100%;
+    margin: auto;
+    max-width: 800px;
+    height: 200px;
+}
+
+.accountId {
+    letter-spacing: 0.15em;
+}
+
+.accountBalance {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: auto;
+}
+
+#outer
+{
+    margin-left: 8px;
+    width:100%;
+    float: left;
+}
+.inner
+{
+    margin: 8px;
+    display: inline-block;
+    width: 30%;
+}
+
+#transactions {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#transactions td, #transactions th {
+    border: 2px solid #343a40;
+    padding: 8px;
+}
+
+.status {
+  background-color: rgb(176, 170, 92);
+}
+
+#FAILED {
+    background-color: rgb(172, 88, 88);
+}
+
+#COMPLETED {
+    background-color: rgb(91, 173, 91);
+}
+
+#user {
+    font-weight: bold;
+}
+
+#transactions th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #b0b0b0;
+    color: black;
+}

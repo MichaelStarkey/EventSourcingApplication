@@ -1,0 +1,29 @@
+# Database settings.
+database:
+
+  # the name of your JDBC driver
+  driverClass: org.h2.Driver
+#
+#  # the username
+  user: css
+#
+#  # the password
+  password: css
+
+  # the JDBC URL
+  url: jdbc:h2:./target/h2
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 3030
+
+  adminConnectors:
+    - type: http
+      port: 4040
+
+
+logging:
+  level: INFO
+  loggers:
+    cssproject.transactions: DEBUG

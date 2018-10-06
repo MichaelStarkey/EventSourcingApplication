@@ -1,0 +1,23 @@
+extends layout
+block header
+  link(rel='stylesheet', href='/stylesheets/admin.css')
+
+block content
+  h1#adminTitle= title
+  h2#currentBranch= branches.current
+  .container#admin
+    .bootstrap-form
+      form.form-signin(method='post' action='/checkoutBranch')
+        .form-label-group
+          select#debtor.form-control(placeholder='Branch', required='', name='branch')
+            option(disabled selected value) Branch
+            each branch in branches.branches
+              option(value=branch)=branch
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Checkout branch
+      .bootstrap-form
+        form.form-signin(method='post' action='/createBranch')
+          input#creditor.form-control(required='', name='time', type='datetime-local')
+          .form-label-group
+            input#branchname.form-control(placeholder='Branch name', required='', name='branch')
+            label(for='branchname') Branch name
+          button.btn.btn-lg.btn-primary.btn-block(type='submit') Create New Branch

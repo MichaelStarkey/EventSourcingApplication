@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  .container.accountPage
+    if accounts
+      each account in accounts
+        .accounts.rounded.box-shadow.my-2
+          p.idLabel.mx-4.my-3 ID: 
+            span.accountId= account.id
+          p.accountBalance.mx-4.mt-0.mb-2 £
+            span= account.balance
+          #outer
+            .inner
+              a.btn.btn-md.btn-primary.btn-block(href="account/"+account.id) View Transactions
+            .inner
+              if account.balance==0
+                a.btn.btn-md.btn-danger.btn-block(href="delete/"+account.id) Delete

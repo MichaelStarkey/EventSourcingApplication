@@ -1,0 +1,22 @@
+extends layout
+block header
+  link(rel='stylesheet', href='/stylesheets/floating-labels.css')
+
+block content
+  .container
+    .bootstrap-form
+      form.form-signin(method='post' action='/createDeposit')
+        .text-center.mb-4
+          if success
+            .alert.alert-success= success
+          //- img.mb-4(src='favicon.ico', alt='', width='72', height='72')
+          h1.h3.mb-3.font-weight-bold= title
+          p
+            | Make a Deposit
+        .form-label-group
+          input#account.form-control(placeholder='Account ID', required='', name='account')
+          label(for='account') Account ID
+        .form-label-group
+          input#amount.form-control(placeholder='Creditor', required='', name='amount')
+          label(for='amount') Amount
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Make Deposit

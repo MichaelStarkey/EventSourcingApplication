@@ -1,0 +1,23 @@
+extends layout
+block header
+  link(rel='stylesheet', href='/stylesheets/floating-labels.css')
+
+block content
+  .container
+    .bootstrap-form
+      form.form-signin(method='post' action='/createWithdrawal')
+        .text-center.mb-4
+          if success
+            .alert.alert-success= success
+          h1.h3.mb-3.font-weight-bold= title
+          p
+            | Make a Withdrawal
+        .form-label-group
+          select#account.form-control(placeholder='Account ID', required='', name='account')
+            option(disabled selected value) Account ID
+            each account in accounts
+              option(value=account.id)=account.id
+        .form-label-group
+          input#amount.form-control(placeholder='Creditor', required='', name='amount')
+          label(for='amount') Amount
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Make Withdrawal

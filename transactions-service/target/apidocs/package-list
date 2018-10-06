@@ -1,0 +1,6 @@
+cssproject.transactions
+cssproject.transactions.api.commands
+cssproject.transactions.api.events
+cssproject.transactions.core
+cssproject.transactions.db
+cssproject.transactions.resources

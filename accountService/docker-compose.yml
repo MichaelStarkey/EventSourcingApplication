@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    environment:
+      - FLASK_APP=accountService.run_app
+      - LC_ALL=C.UTF-8
+      - LANG=C.UTF-8
+    build: .
+    networks:
+     - host
+    ports:
+     - "5000:5000"
+    tty: true
+
+networks:
+   host:
